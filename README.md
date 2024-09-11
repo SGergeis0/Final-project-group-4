@@ -1,37 +1,88 @@
-# Final-project-group-4
 # Project Topic: Identifying Music Genres (classification)
 
 Project Title: Music Genre Prediction Using Machine Learning
 
-Project Description
+Project Files and How to Run Them
 
-This project aims to predict music genres using a dataset of Spotify songs. The dataset is analyzed and modeled through various machine learning techniques, including Principal Component Analysis (PCA) and clustering. The goal is to accurately classify songs into genres using features like tempo, energy, and other song attributes. The project showcases the potential of machine learning in classifying music data and explores insights gained from the predictive models.
+1. ETL.ipynb - Extract, Transform, Load (ETL) Process
 
-Project Files
+Purpose: This notebook cleans and prepares the dataset for machine learning.
 
-	1.	ETL.ipynb - This notebook handles the Extract, Transform, Load (ETL) process. It cleans and prepares the data from the Spotify dataset, ensuring it is ready for analysis and modeling.
-	2.	PCA_Clustering.ipynb - In this notebook, Principal Component Analysis (PCA) and clustering techniques are applied to reduce dimensionality and group similar songs.
-	3.	Deploying_machine.ipynb - This notebook focuses on model deployment and evaluates different machine learning models to predict genres.
-	4.	predict_genre_solution.ipynb - The final model for genre prediction is developed and tested here. It uses the Random Forest classifier after hyperparameter tuning to enhance accuracy.
-	5.	spotify_songs_nogenre.csv - The cleaned dataset used in the project for analysis and modeling.
+How to Run:
 
-Technologies Used
+	•	Open the notebook in Jupyter or any notebook environment.
+	•	Run each cell in sequence.
 
-	•	Python: Core programming language used for analysis and modeling.
-	•	Scikit-learn: Used for machine learning models like Random Forest and PCA.
-	•	Pandas: Data manipulation and analysis library.
-	•	Matplotlib: Visualization library to create charts and plots for insights.
-	•	Jupyter Notebooks: Interactive notebooks for executing and presenting the code.
+What Each Cell Does:
 
-Project Workflow
+	•	Cell 1-3: Imports necessary libraries such as pandas for data manipulation.
+	•	Cell 4: Loads the spotify_songs_nogenre.csv dataset.
+	•	Cells 5-7: Handles missing values and drops unnecessary columns.
+	•	Cell 8: Transforms the data by normalizing numerical features (e.g., tempo, energy), ensuring they are ready for machine learning algorithms.
+	•	Final Cell: Saves the cleaned and transformed dataset for use in subsequent notebooks.
 
-	1.	Data Exploration and Cleaning: The dataset was first explored and cleaned in the ETL.ipynb notebook to ensure it was ready for modeling.
-	2.	Feature Engineering and PCA: Features were selected, and dimensionality reduction was applied using PCA to simplify the data and find patterns.
-	3.	Modeling and Evaluation: Several models were tested, including Random Forest, with hyperparameter tuning. The best model was deployed in predict_genre_solution.ipynb for final predictions.
-	4.	Visualization and Insights: Insights from the models were visualized using Matplotlib to better understand the results.
+Outcome: The data is now clean and ready for analysis and modeling in the next steps.
 
-How to Run
+2. PCA_Clustering.ipynb - Principal Component Analysis (PCA) and Clustering
 
-	1.	Install the required Python libraries: scikit-learn, pandas, matplotlib.
-	2.	Open each notebook and run the cells to replicate the steps from data cleaning to genre prediction.
-	3.	Use the predict_genre_solution.ipynb for making new genre predictions on a provided dataset.
+Purpose: This notebook reduces the dataset’s complexity using PCA and clusters similar songs together based on their features.
+
+How to Run:
+
+	•	After running the ETL.ipynb, open this notebook and execute it step-by-step.
+
+What Each Cell Does:
+
+	•	Cell 1-2: Imports required libraries such as scikit-learn for PCA and clustering.
+	•	Cell 3: Loads the cleaned dataset from ETL.ipynb.
+	•	Cells 4-5: Applies Principal Component Analysis (PCA) to reduce the number of features, making the data easier to visualize and process.
+	•	Cell 6: Clusters the songs using KMeans, grouping them based on their similarity.
+	•	Cells 7-9: Visualizes the PCA results in a 2D plot and shows the clusters.
+
+Outcome: The dimensionality is reduced, and songs are grouped into clusters for further analysis.
+
+3. Deploying_machine.ipynb - Model Deployment and Evaluation
+
+Purpose: This notebook tests and evaluates different machine learning models to predict music genres.
+
+How to Run:
+
+	•	Make sure the PCA and clustering are completed from the previous notebook.
+	•	Open this notebook and execute the cells in sequence.
+
+What Each Cell Does:
+
+	•	Cell 1-2: Imports necessary machine learning libraries like RandomForestClassifier from scikit-learn.
+	•	Cell 3: Loads the PCA-processed dataset.
+	•	Cells 4-5: Splits the data into training and testing sets.
+	•	Cells 6-8: Tests multiple machine learning models such as Random Forest and SVM to determine which model performs best.
+	•	Final Cell: Outputs the model accuracy and saves the model for use in predictions.
+
+Outcome: A trained model is saved, ready to predict genres with a high level of accuracy.
+
+4. predict_genre_solution.ipynb - Final Prediction Using Random Forest
+
+Purpose: This notebook provides the final solution, predicting genres using the best-performing model (Random Forest).
+
+How to Run:
+
+	•	This notebook is the last step. Ensure that the Deploying_machine.ipynb is fully run, and the trained model is available.
+	•	Open the notebook and run the cells step-by-step.
+
+What Each Cell Does:
+
+	•	Cell 1: Loads the trained Random Forest model saved from Deploying_machine.ipynb.
+	•	Cell 2: Loads a new dataset (or the same cleaned data) to make genre predictions.
+	•	Cells 3-4: Uses the trained model to predict the genres for the songs in the dataset.
+	•	Final Cell: Outputs the predictions, showing which genre each song is classified as.
+
+Outcome: This notebook provides the final genre predictions for a given dataset.
+
+Project Workflow Recap
+
+	1.	Run ETL.ipynb to clean and prepare the dataset.
+	2.	Run PCA_Clustering.ipynb to reduce the data’s complexity and group similar songs.
+	3.	Run Deploying_machine.ipynb to train different machine learning models and find the best one.
+	4.	Run predict_genre_solution.ipynb to use the final model and predict genres for new songs.
+
+By following this workflow, you will be able to replicate the entire process from data cleaning to genre prediction.
