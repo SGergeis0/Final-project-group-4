@@ -37,7 +37,7 @@ What Each Cell Does:
 	•	Cell 3: Loads the cleaned dataset from ETL.ipynb.
 	•	Cells 4-5: Applies Principal Component Analysis (PCA) to reduce the number of features, making the data easier to visualize and process.
 	•	Cell 6: Clusters the songs using KMeans, grouping them based on their similarity.
-	•	Cells 7-9: Visualizes the PCA results in a 2D plot and shows the clusters.
+	•	Cells 7-9: Visualizes the PCA results in a 3D plot and shows the clusters.
 
 Outcome: The dimensionality is reduced, and songs are grouped into clusters for further analysis.
 
@@ -47,8 +47,12 @@ Purpose: This notebook tests and evaluates different machine learning models to 
 
 How to Run:
 
-	•	Make sure the PCA and clustering are completed from the previous notebook.
-	•	Open this notebook and execute the cells in sequence.
+	•	For this notebook, it will be best to open Colab 
+	•	When uploading the notebook into Colab, also be sure to upload `songs_filtered.csv` from the Resources folder
+	•	Running the following code does alter the hyperparameters each time it is ran, if they defer from `best_model_1` input the correct hyperparameters:
+		```top_hyper = tuner.get_best_hyperparameters(3)
+			for param in top_hyper:
+    		print(param.values)```
 
 What Each Cell Does:
 
